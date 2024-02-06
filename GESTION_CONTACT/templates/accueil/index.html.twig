@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <h1 class= 'text-center pt-5'>Bienvenue sur mon application de gestion</h1>  
+    {# login form #}
+    <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control border-success w-25 p2" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control border-success w-25 p2" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <br>
+    <div class="card w-25">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Jacksons_1976_2.jpg/800px-The_Jacksons_1976_2.jpg" class="card-img-top w-100" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">The Jackson five</h4>
+            <p class="card-text">Groupe familial conduit par Joseph « Joe » Jackson... les cinq frères battent tous les records de ventes. 
+            ...Michael Jackson, passé du stade d’enfant-prodige à celui de « King Of Pop ».</p>
+            <a href="https://www.universalmusic.fr/artistes/20000026014" class="btn btn-primary">More . . .</a>
+        </div>
+    </div>
+
+{% endblock %}
+
