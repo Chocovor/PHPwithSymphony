@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+    <h1 class='text-center pt-2'>Liste des contacts</h1>
+    <div class="card mb-3">
+        <h3 class="card-header">Card header</h3>
+        <svg xmlns="http://www.w3.org/2000/svg" class="d-block us">
+            <rect width="100%" height="100%" fill="#868e96"></rect>
+            <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image ca</text>
+        </svg>
+        <div class="row">
+            {% for leContact in lesCOntacts %}
+                <div class="card mb-3" style="width: 18rem;">{#mb-3#}
+                    <h3 class="card-title">{{leContact.nom}} {{leContact.prenom}}</h3>
+                    <img style="height: 200px; width: 100%; diisplay: block;" src="" alt="">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{leContact.rue}}</li>
+                        <li class="list-group-item">{{leContact.cp}}</li>
+                        <li class="list-group-item">{{leContact.ville}}</li>
+                        <li class="list-group-item">{{leContact.mail}}</li>
+                        <li class="list-group-item">{{leContact.}}
+                            {{leContact.sexe == 0 ? <span>Homme</span> : <span>Femme</span>}}
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>     
+        <div class="card-body">
+            <a href="#" class="btn btn-succes btn_block text-center w-100">Détail. . . </a>
+        </div>
+    </div>
+{% endblock %}

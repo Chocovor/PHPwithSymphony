@@ -1,36 +1,52 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="UTF-8">
+        <title>{% block title %}Mes Contacts{% endblock %}</title>
+        <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.min.css">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/app.css">
+        
+        {% block stylesheets %} {% endblock %}
+    </head>
+    <body>
+   {# navbar #}
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Mes Contacts</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion des contacts</a>
+                            <div class="dropdown-menu" style="">
+                                <a class="dropdown-item" href="{{ path("contacts")}}">Listes des contacts</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{path('listeContactsSexe', {'sexe': 0})}}">Listes des hommes</a>
+                                <a class="dropdown-item" href="{{path('listeContactsSexe', {'sexe': 1})}}">Listes des femmes</a>
+                            </div>
+                        </li>    
+                        <li class="nav-item">
+                            {#<a class="nav-link" href="{{ path("categories")}}">Listes des catégories</a>#}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-{% block title %}Accueil{% endblock %}
 
-{% block body %}
-    <h1 class= 'text-center pt-5'>Bienvenue sur mon application de gestion</h1>  
-    {# login form #}
-    <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control border-success w-25 p2" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <div class="container">
+            {% block body %} {% endblock %}
         </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control border-success w-25 p2" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-    <br>
-    <div class="card w-25">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Jacksons_1976_2.jpg/800px-The_Jacksons_1976_2.jpg" class="card-img-top w-100" alt="...">
-        <div class="card-body">
-            <h4 class="card-title">The Jackson five</h4>
-            <p class="card-text">Groupe familial conduit par Joseph « Joe » Jackson... les cinq frères battent tous les records de ventes. 
-            ...Michael Jackson, passé du stade d’enfant-prodige à celui de « King Of Pop ».</p>
-            <a href="https://www.universalmusic.fr/artistes/20000026014" class="btn btn-primary">More . . .</a>
-        </div>
-    </div>
 
-{% endblock %}
-
+        {% block javascripts %} {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    </body>
+</html>
