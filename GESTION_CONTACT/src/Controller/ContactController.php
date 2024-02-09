@@ -15,7 +15,7 @@ class ContactController extends AbstractController
      */
     public function listeContact(ContactRepository $repo): Response
     {
-        //$manager=$this->$this->getDoctrine()->getMAnager();
+        //$manager=$this->getDoctrine()->getMAnager();
         //$repo = $manager->getRepository(Contact::class);
         $contacts = $repo->findAll();
      
