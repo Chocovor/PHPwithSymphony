@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<h1 class="text-center pt-2">Liste des contacts</h1>
+<div class="row">
+    {% for contact in contacts %} 
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
+            <div class="card mb-3 container">
+                <h4 class="card-title text-center">{{contact.nom}} {{contact.prenom}}</h4>
+                <img style="height: auto; max-width: 200px; display: block;" src="{{contact.avatar}}" class="avatar mx-auto my-3" alt="image avatar">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{contact.rue}}</li>
+                    <li class="list-group-item">{{contact.cp}}</li>
+                    <li class="list-group-item">{{contact.ville}}</li>
+                    <li class="list-group-item">{{contact.mail}}</li>
+                    <li class="list-group-item">
+                        {% if contact.sexe ==0 %}
+                            <span class='badge text-bg-info'>Homme</span>
+                        {% else %}
+                            <span class='badge text-bg-warning'>Femme</span>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+ {# <div class="card-body">
+                <a href="" class="btn btn-success btn-block text-center w-100">Détail ...</a>
+            </div> #}
+
+{% endblock %}
