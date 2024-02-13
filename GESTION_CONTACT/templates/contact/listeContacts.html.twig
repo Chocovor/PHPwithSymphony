@@ -6,6 +6,7 @@
 <h1 class="text-center pt-2">Liste des contacts</h1>
 <div class="row">
     {% for contact in contacts %} 
+    {#{{dump(contacts)}}#}{#affichage en front de la liste de tous les contacts de la BDD#}
         <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
             <div class="card mb-3 container">
                 <h4 class="card-title text-center">{{contact.nom}} {{contact.prenom}}</h4>
@@ -23,13 +24,11 @@
                         {% endif %}
                     </li>
                 </ul>
+                <div class="card-body">
+                    <a href="{{path('ficheContact', {'id': contact.id})}}" class="btn btn-success btn-block text-center w-100">Détail ...</a>
+                </div> 
             </div>
         </div>
     {% endfor %}
 </div>
-
- {# <div class="card-body">
-                <a href="" class="btn btn-success btn-block text-center w-100">Détail ...</a>
-            </div> #}
-
 {% endblock %}

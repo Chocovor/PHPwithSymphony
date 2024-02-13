@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<body style= "background-image: url(../assets/images/design-fond-confettis-design-plat_23-2148444777.png); background-size: contain;">
+    <h1 class="text-center pt-2">Fiche contact</h1>
+            <div class="card mb-2 container">
+                <h4 class="card-title text-center" style="background-color:lightgrey; font-syle: bolder; font-size:200%; color:blue;">
+                    {{contact.nom}} {{contact.prenom}}
+                </h4>
+                <div style= "display:flex; justify-content: space-between;">
+                    <img style="height: auto;" src="{{contact.avatar}}" class="avatar my-3" alt="image avatar">
+                    <ul class="list-group list-group-flush" style= "width: 20%;">
+                        <li class="list-group-item">{{contact.rue}}</li>
+                        <li class="list-group-item">{{contact.cp}}</li>
+                        <li class="list-group-item">{{contact.ville}}</li>
+                        <li class="list-group-item">{{contact.mail}}</li>
+                        <li class="list-group-item">
+                        {% if contact.sexe ==0 %}
+                            <span class='badge text-bg-info'>Homme</span>
+                        {% else %}
+                            <span class='badge text-bg-warning'>Femme</span>
+                        {% endif %}
+                        </li>
+                    </ul>
+                    <div class="description" style="width:50%"> 
+                    </div>
+                </div>
+            </div>
+    <div>
+    <a href="{{path('app_contact')}}" class="btn btn-primary text-center w-100">Revenir à la liste</a>
+    </div>   
+</body>
+{% endblock %}

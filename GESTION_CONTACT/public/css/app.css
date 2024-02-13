@@ -1,10 +1,12 @@
-.avatar{
-    border-radius: 50%;
-}
-
 Comment code
 .imageCategories{
     width: 150px;
     height: 150px;
     border-radius: 50%;
+}
+.avatar{
+    border-radius: 50%;
+}
+body{
+    background-image: url(../assets/images/design-fond-confettis-design-plat_23-2148444777.png);
 }

@@ -15,19 +15,32 @@ class ContactController extends AbstractController
      */
    
     public function index(ContactRepository  $repo) : Response 
-    
     {
         // $manager = $this->getDoctrine()->getManager(); //manager gère l'envoi des éléments vers la BDD et getDoctrine fait le taxi
         // $repo = $manager->getRepository(Contact::class); // On récupère le repository de la table "Contact"
         // les deux lignes au dessus sont remplacées par les paramètres de notre fonction index
         $contacts = $repo->findAll();
         // les 3 lignes au dessus récupèrent tous les contacts de la base de données et les stockent dans une variable "contacts". 
-
+        //dump($contacts); //pour afficher  le contenu d'une variable en debuggant
         return $this->render('contact/listeContacts.html.twig', [
             // 'controller_name' => 'ContactController',
             "contacts"=>$contacts, //"contacts" est le nom de la variable qui sera accessible dans notre vue twig (front)
             //$contacts, variable back end 
             //donc on relie les deux
         ]);
+
     }
-}
+    /**
+    * @Route("/contact/{id}", name="ficheContact", methods={"GET"})
+    */
+   
+     public function ficheContact($id, ContactRepository  $repo) : Response  
+     {
+         $contact = $repo->find($id);
+ 
+         return $this->render('contact/ficheContact.html.twig', [
+             // 'controller_name' => 'ContactController',
+             "contact"=> $contact,
+         ]);
+     }
+    }

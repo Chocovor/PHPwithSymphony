@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Contact;
+use App\Entity\Categorie;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -11,6 +12,7 @@ class ContactsFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {   $faker = Factory::create("fr_FR");
+        $categorie = new Categorie();
         $genres = ["male","female"];
 
         for ($i=0 ; $i<100 ;$i++){ //boucle qui permet de générer 100 contacts, on integre le sexe parce qu'on a une condition qui doit être prise en compte autrement on aurait aléatoirement soit un homme soit une femme 
