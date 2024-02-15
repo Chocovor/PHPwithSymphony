@@ -15,7 +15,7 @@ class AccueilController extends AbstractController
     l’URL "NOMDEMONSITE/accueil" avec la requête GET. La route s’appelle app_accueil.*/
     
     /**
-     * @Route("/accueil", name="app_accueil")
+     * @Route("/", name="app_accueil")
      */
     public function index(): Response
     {
