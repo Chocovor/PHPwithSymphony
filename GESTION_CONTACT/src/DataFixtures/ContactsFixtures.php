@@ -47,6 +47,7 @@ class ContactsFixtures extends Fixture
                 ->setVille($faker->city())
                 ->setMail($faker->email())
                 ->setSexe($sexe)
+                ->setCategorie($categories[mt_rand(0,2)])
                 ->setAvatar("https://randomuser.me/api/portraits/". $type."/".$i.".jpg"); //$i renvoit à la boucle plus haut qui génére les 100 contacts
         $manager->persist($contact); //on lui  dit que l'objet est en attente de coté avant qu'on lui donne l'ordre d'enregistrer dans la BDD
         }

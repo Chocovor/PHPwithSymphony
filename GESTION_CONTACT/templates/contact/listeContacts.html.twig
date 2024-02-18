@@ -23,6 +23,7 @@
                             <span class='badge text-bg-warning'>Femme</span>
                         {% endif %}
                     </li>
+                    <li class="list-group-item">{{contact.Categorie.libelle}}</li>
                 </ul>
                 <div class="card-body">
                     <a href="{{path('ficheContact', {'id': contact.id})}}" class="btn btn-success btn-block text-center w-100">Détail ...</a>

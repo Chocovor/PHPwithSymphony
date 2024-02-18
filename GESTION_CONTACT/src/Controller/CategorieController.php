@@ -19,4 +19,15 @@ class CategorieController extends AbstractController
             'lesCategories' => $categories
         ]);
     }
+    /**
+     * @Route("/categorie/{id}", name="categorie", methods={"GET"})
+     */
+    public function laCategorie($id, CategorieRepository $repo): Response
+    {
+        $categorie = $repo->find($id);
+
+        return $this->render('categorie/ficheCategorie.html.twig', [
+            'laCategorie' => $categorie
+        ]);
+    }
 }
