@@ -1,0 +1,35 @@
+<body>
+    <div class="card mb-3  
+        {% if contact.sexe == 0 %}
+            border-info border-2
+        {% else %}
+            border-warning border-2
+        {% endif %}
+        ">
+        <h4 class="card-title text-center">{{contact.nom}} {{contact.prenom}}</h4>
+        <img style="height: auto; max-width: 200px; display: block;" src="{{contact.avatar}}" class="avatar mx-auto my-3" alt="image avatar">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{contact.rue}}</li>
+            <li class="list-group-item">{{contact.cp}}</li>
+            <li class="list-group-item">{{contact.ville}}</li>
+            <li class="list-group-item">{{contact.mail}}</li>
+            <li class="list-group-item">
+                {% if contact.sexe==0 %}
+                    <span class='badge text-bg-info'>Homme</span>
+                {% else %}
+                    <span class='badge text-bg-warning'>Femme</span>
+                {% endif %}
+            </li>
+            {% if mode == 'listeContacts'%}
+                <li class="list-group-item"> 
+                    <a href="{{path('ficheCategorie', {'id': contact.categorie.id})}}">
+                        {{contact.categorie.libelle}}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+        <div class="card-body">
+            <a href="{{path('ficheContact', {'id': contact.id})}}" class="btn btn-success btn-block text-center w-100">Détail ...</a>
+        </div>
+    </div>
+</body>

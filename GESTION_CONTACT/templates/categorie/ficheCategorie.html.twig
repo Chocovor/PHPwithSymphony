@@ -14,6 +14,11 @@
                 </div>
                 <div class="card-body">
                     <a href="{{path('categories')}}" class="btn btn-success btn-block text-center w-100">retour à la liste</a>
-                </div>   
+                </div> 
+                   {% for contact in laCategorie.contacts %}
+                        <div>
+                             {{ include('contact/_cardFicheContact.html.twig') }}
+                        </div>
+                    {% endfor %}
             </div>
 {% endblock %}
