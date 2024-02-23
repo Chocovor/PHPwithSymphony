@@ -3,18 +3,30 @@
 {% block title %}Hello MainController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<div>
+<table class="table">
+  <thead>
+    <tr>
+        <th>numero</th>
+        <th>titre</th>
+        <th>contenu</th>
+        <th>auteur</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for Articles in data %}
+    <tr>
+        <td scope="col">{{Articles.id}}</td>
+      <td scope="col">{{Articles.title}}</td> 
+      <td scope="col">{{Articles.content}}</td>
+      <td scope="col">{{Articles.author}}</td>
+      <td scope="col"><a href="{{path('app_update', {'id':Articles.id})}}" class="btn btn-info mt-2 text-white">Modifier</a></td>
+      <td scope="col"><a href="{{path('app_delete',  {'id':Articles.id})}}"  class="btn btn-info mt-2 text-white">Supprimer</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<a href="{{path('app_create')}}"  class="btn btn-info mt-2 text-white">Créer un nouvel article</a>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/crud/src/Controller/MainController.php'|file_link(0) }}">src/Controller/MainController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/crud/templates/main/index.html.twig'|file_link(0) }}">templates/main/index.html.twig</a></code></li>
-    </ul>
 </div>
 {% endblock %}

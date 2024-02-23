@@ -13,9 +13,11 @@ class CrudType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
-            ->add('author')
-        ;
+            ->add('content') 
+            ->add('author', null, [
+                'required' => false,
+                'empty_data' => 'anonymous',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

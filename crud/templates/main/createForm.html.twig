@@ -7,14 +7,31 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-        <h3 class="mt-5 mb5 text-white">Formulaire de création</h3>
+        <h3 class="mt-5 mb5 text-black">Formulaire de création</h3>
+
             {# Affichage d'un formulaire Symfony #}
             <div class="col-mb-6 offset-md-3">
             {{ form_start(form) }}
-            {{ form(form) }}
-            {{ form_end(form)}}
+            {#{{ form(form) }}#}
+            <div class="form-group text-black">
+            {{ form_label(form.title, "Titre :")}} 
+            {{ form_widget(form.title, {'attr':{'class':'form-control'} })}}
             </div>
+            <div class="form-group text-black">
+            {{ form_label(form.content,"Contenu :", {"label_attr":{"class":"text-black"}}) }}
+            {{ form_widget(form.content,{"attr": {"class":"form-control","rows":"8"} } ) }}
+            </div>
+            <div class="form-group text-black">
+            {{ form_label(form.author, "Auteur :") }}
+            {{ form_widget(form.author, {'attr':{'class':'form-control'} }) }}
+            </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-info mt-2 text-black">Soumettre</button>
+            </div>
+            {{ form_end(form) }}
         </div>
+        <a href="{{path('app_main')}}"  class="btn btn-info mt-2 text-white">Retour à la page d'accueil</a>
     </div>
 </body>
 {% endblock %}
