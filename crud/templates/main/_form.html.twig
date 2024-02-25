@@ -1,0 +1,16 @@
+        <div>
+            {{ form_start(form) }}
+            {#{{ form(form) }}#}
+            <div class="form-group text-black">
+            {{ form_label(form.title, "Titre :")}} 
+            {{ form_widget(form.title, {'attr':{'class':'form-control'} })}}
+            </div>
+            <div class="form-group text-black">
+            {{ form_label(form.content,"Contenu :", {"label_attr":{"class":"text-black"}}) }}
+            {{ form_widget(form.content,{"attr": {"class":"form-control"} } ) }}
+            </div>
+            <div class="form-group text-black">
+            {{ form_label(form.author, "Auteur :") }}
+            {{ form_widget(form.author, {'attr':{'class':'form-control'} }) }}
+            </div>
+        </div>
