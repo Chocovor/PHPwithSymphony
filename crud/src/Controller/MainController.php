@@ -76,14 +76,15 @@ class MainController extends AbstractController
             /**
      * @Route("/delete/{id}", name="app_delete", methods= {"GET", "POST"})
      */
-    public function delete($id, Request $request): Response
+    public function delete($id, Request $request, ArticlesRepository $repo): Response
     {
 
-        $crud = $this->getDoctrine()->getRepository(Articles::class)->find($id);
-        $form = $this->createForm(CrudType::class, $crud) ; #creation du formulaire grace au CrudType qui est un formBuilderCrud::class pour utiliser le formulaire de la class entityCrud
-        $form->handleRequest($request); #applique les requête pour les appliquer au formulaire afin d'associer chaque champs aux colonnes correspondante de la table articles
-        if ($form->isSubmitted() && $form->isValid()){
+        //$crud = $this->getDoctrine()->getRepository(Articles::class)->find($id);
+        //$form = $this->createForm(CrudType::class, $crud) ; #creation du formulaire grace au CrudType qui est un formBuilderCrud::class pour utiliser le formulaire de la class entityCrud
+       //$form->handleRequest($request); #applique les requête pour les appliquer au formulaire afin d'associer chaque champs aux colonnes correspondante de la table articles
+        //if ($form->isSubmitted() && $form->isValid()){
             //ici on enregistre dans la base de données si le formulaire est bien rempli
+            $crud = $repo -> find($id) ;
             $sendDatabase= $this ->getDoctrine()->getManager();
             $sendDatabase->remove($crud);
             $sendDatabase->flush();
@@ -93,9 +94,8 @@ class MainController extends AbstractController
 
         }
 
-        return $this->render('main/deleteForm.html.twig', [
+        /*return $this->render('main/deleteForm.html.twig', [
             'controller_name' => 'MainController',
             'form' => $form->createView(),
-        ]);
+        ]);*/
     }
-}
